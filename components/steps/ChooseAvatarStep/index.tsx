@@ -11,7 +11,7 @@ import { MainContext } from '../../../pages';
 export const ChooseAvatarStep: React.FC = () => {
   const { onNextStep } = useContext(MainContext);
   const [avatarUrl, setAvatarUrl] = useState<string>(
-    'https://sun2-3.userapi.com/s/v1/if1/CAR1Aao3yIica7xq77xIIMMTn29CME-cE5JSJBc8OTNVt29JQjnhR0ZsX_9IO-AzgwVbfgB6.jpg?size=200x0&quality=96&crop=138,44,1048,1048&ava=1',
+    'https://avatars.githubusercontent.com/u/61978992?v=4',
   );
   const inputFileRef = useRef<HTMLInputElement>(null);
 
