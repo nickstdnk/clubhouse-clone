@@ -1,4 +1,5 @@
 import { useState, createContext } from 'react'
+import { ChooseAvatarStep } from '../components/steps/ChooseAvatarStep';
 import { EnterNameStep } from '../components/steps/EnterNameStep';
 import { TwitterStep } from '../components/steps/TwitterStep';
 import { WelcomeStep } from "../components/steps/WelcomeStep"
@@ -6,7 +7,8 @@ import { WelcomeStep } from "../components/steps/WelcomeStep"
 const stepsComponents = {
   0: WelcomeStep,
   1: EnterNameStep,
-  2: TwitterStep
+  2: TwitterStep,
+  3: ChooseAvatarStep
 }
 
 type MainContextProps = {
