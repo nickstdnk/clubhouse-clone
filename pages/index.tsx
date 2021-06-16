@@ -1,19 +1,19 @@
-import { useState, createContext } from 'react'
+import { useState, createContext } from 'react';
 import { ChooseAvatarStep } from '../components/steps/ChooseAvatarStep';
 import { EnterCodeStep } from '../components/steps/EnterCodeStep';
 import { EnterNameStep } from '../components/steps/EnterNameStep';
 import { EnterPhoneStep } from '../components/steps/EnterPhoneStep';
-import { TwitterStep } from '../components/steps/TwitterStep';
-import { WelcomeStep } from "../components/steps/WelcomeStep"
+import { GitHubStep } from '../components/steps/GitHubStep';
+import { WelcomeStep } from '../components/steps/WelcomeStep';
 
 const stepsComponents = {
   0: WelcomeStep,
-  1: EnterNameStep,
-  2: TwitterStep,
+  1: GitHubStep,
+  2: EnterNameStep,
   3: ChooseAvatarStep,
   4: EnterPhoneStep,
-  5: EnterCodeStep
-}
+  5: EnterCodeStep,
+};
 
 type MainContextProps = {
   onNextStep: () => void;

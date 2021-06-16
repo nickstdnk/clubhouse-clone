@@ -1,21 +1,43 @@
 import clsx from 'clsx';
+import { useEffect } from 'react';
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
 
-import styles from './TwitterStep.module.scss';
+import styles from './GitHubStep.module.scss';
 import { useContext } from 'react';
 import { MainContext } from '../../../pages';
 
-export const TwitterStep: React.FC = () => {
+export const GitHubStep: React.FC = () => {
   const { onNextStep } = useContext(MainContext);
+
+  const onClickAuth = () => {
+    const win = window.open(
+      'http://localhost:3001/auth/github',
+      'Auth',
+      'width=500,height=500,status=yes,toolbar=no,menubar=no,location=no',
+    );
+
+    const timer = setInterval(() => {
+      if (win.closed) {
+        clearInterval(timer);
+        onNextStep();
+      }
+    }, 100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('message', (data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className={styles.block}>
-      <StepInfo icon="/static/connect.png" title="Do you want import info from Twitter?" />
+      <StepInfo icon="/static/connect.png" title="Do you want import info from GitHub?" />
       <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>
         <div className={styles.avatar}>
-          <b>AD</b>
+          <b>NS</b>
           <svg
             width="100"
             height="100"
@@ -30,9 +52,9 @@ export const TwitterStep: React.FC = () => {
           </svg>
         </div>
         <h2 className="mb-40">Nikolay Stadnik</h2>
-        <Button onClick={onNextStep}>
-          <img src="/static/twitter.svg" alt="Twitter logo" className={styles.twitterLogo} />
-          Import from Twitter
+        <Button onClick={onClickAuth}>
+          <img src="/static/github.svg" alt="GitHub logo" className={styles.githubLogo} />
+          Import from GitHub
           <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>
         <div className="link mt-20 cup d-ib">Enter my info manually</div>
